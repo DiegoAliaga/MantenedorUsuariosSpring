@@ -27,3 +27,5 @@ Dentro del proyecto se subio la coleccion de Postman, a fin de poder realizar pr
 
 La base de datos utilizada es en memoria H2 la cual al dejar de correr el proyecto, los usuarios se borran. Se recomienda un MySql o Postgres para guardar datos y persistirlos
 
+Para ingresar a la bd iniciar el proyecto, ingresar al enlace http://localhost:9095/h2-console y reemplazar contenido de JDBC URL: por jdbc:h2:mem:test
+
