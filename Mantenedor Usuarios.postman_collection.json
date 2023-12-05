@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "f1c614cf-588f-4e20-aaed-7daf751dd212",
+		"name": "Mantenedor Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9702867"
+	},
+	"item": [
+		{
+			"name": "localhost:9095/listarUsuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9095/listarUsuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"listarUsuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:9095/crearUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Diego Aliaga\",\r\n    \"email\": \"daliaga@ad.cl\",\r\n    \"password\": \"w3Unpocodet0d0\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"12342\",\r\n            \"cityCode\": \"43\",\r\n            \"contryCode\" : \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9095/crearUsuario",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"crearUsuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:9095/buscarUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"email\": \"daliaga@asd.cl\",\r\n    \"password\": \"w3Unpocodet0d0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9095/buscarUsuario",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"buscarUsuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:9095/eliminarUsuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"email\": \"daliaga@ad.cl\",\r\n    \"password\": \"w3Unpocodet0d0\",\r\n    \"repassword\": \"w3Unpocodet0d0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9095/eliminarUsuario",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"eliminarUsuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:9095/actualizarUsuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"id\": 1,\r\n        \"name\": \"Diego Benjamin\",\r\n        \"email\": \"daliaga@sd.cl\",\r\n        \"password\": \"w3Unpocodet0d0\",\r\n        \"repassword\": \"w3Unpocodet0d0\",\r\n        \"phones\": [\r\n            {\r\n                \"number\": 12342,\r\n                \"cityCode\": 43,\r\n                \"contryCode\": 2\r\n            },\r\n            {\r\n                \"number\": 54321,\r\n                \"cityCode\": 43,\r\n                \"contryCode\": 2\r\n            }\r\n        ],\r\n        \"isActive\": true\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9095/actualizarUsuario",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"actualizarUsuario"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
