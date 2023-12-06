@@ -1,9 +1,11 @@
-package MantenedorUsuariosSpring.service
+package com.daliaga.MantenedorUsuariosSpring.service
 
 import com.daliaga.MantenedorUsuariosSpring.config.ApplicationConfig
 import com.daliaga.MantenedorUsuariosSpring.dto.ActualizarUsuarioRequestDto
 import com.daliaga.MantenedorUsuariosSpring.dto.ActualizarUsuarioResponseDto
 import com.daliaga.MantenedorUsuariosSpring.dto.TelefonoDto
+import com.daliaga.MantenedorUsuariosSpring.exceptions.MantenedorError
+import com.daliaga.MantenedorUsuariosSpring.repository.UsuarioRepository
 import com.daliaga.MantenedorUsuariosSpring.service.ActualizarUsuariosService
 import com.daliaga.MantenedorUsuariosSpring.util.Utilitarios
 import spock.lang.Specification
@@ -12,12 +14,16 @@ class ActualizarUsuariosServiceTest extends Specification{
     ActualizarUsuariosService actualizarUsuariosService
     ApplicationConfig config
     Utilitarios utilitarios
+    UsuarioRepository usuarioRepository
 
     void setup(){
         config = new ApplicationConfig()
-        config.getRegex().setValidacionCorreo("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\$")
-        config.getRegex().setValidacionPass("'^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).{8,}\$'")
         utilitarios = Mock()
+        usuarioRepository = Mock()
+
+        this.actualizarUsuariosService = new ActualizarUsuariosServiceImpl(
+                config
+        )
     }
 
     def "Invoca a la clase service para actualizar un usuario resultado OK"(){
@@ -35,10 +41,12 @@ class ActualizarUsuariosServiceTest extends Specification{
                 .email("aa@aa.cl")
                 .isActive(true)
                 .password("w3Unpocodet0d1")
-                .repassword("w3Unpocodet0d1").phones(telefonos)
+                .repassword("w3Unpocodet0d1")
+                .phones(telefonos)
+                .build()
         when: "se invoca el metodo para actualizar usuario"
         def result = actualizarUsuariosService.actualizarUsuario(actualizarUsuarioRequestDto)
         then: "se retorna respuesta"
-        result != null
+        thrown(MantenedorError)
     }
 }

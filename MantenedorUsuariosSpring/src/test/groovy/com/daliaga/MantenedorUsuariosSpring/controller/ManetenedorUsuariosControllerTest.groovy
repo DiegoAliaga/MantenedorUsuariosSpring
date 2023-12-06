@@ -1,13 +1,10 @@
 package com.daliaga.MantenedorUsuariosSpring.controller
 
+import com.daliaga.MantenedorUsuariosSpring.controller.MantenedorUsuariosSpringController
 import com.daliaga.MantenedorUsuariosSpring.dto.ActualizarUsuarioRequestDto
 import com.daliaga.MantenedorUsuariosSpring.dto.ActualizarUsuarioResponseDto
 import com.daliaga.MantenedorUsuariosSpring.dto.TelefonoDto
-import com.daliaga.MantenedorUsuariosSpring.service.ActualizarUsuariosService
-import com.daliaga.MantenedorUsuariosSpring.service.EliminarUsuarioService
-import com.daliaga.MantenedorUsuariosSpring.service.ListarUsuarioService
-import com.daliaga.MantenedorUsuariosSpring.service.ListarUsuariosService
-import com.daliaga.MantenedorUsuariosSpring.service.RegistrarUsuarioService
+import com.daliaga.MantenedorUsuariosSpring.service.*
 import spock.lang.Specification
 
 class ManetenedorUsuariosControllerTest extends Specification{
@@ -43,7 +40,9 @@ class ManetenedorUsuariosControllerTest extends Specification{
                 .email("aa@aa.cl")
                 .isActive(true)
                 .password("w3Unpocodet0d1")
-                .repassword("w3Unpocodet0d1").phones(telefonos)
+                .repassword("w3Unpocodet0d1")
+                .phones(telefonos)
+                .build()
         actualizarUsuariosService.actualizarUsuario(_,_) >> actualizarUsuarioResponseDto
         when: "Se invoca al servicio"
         def respuesta = mantenedorUsuariosSpringController.actualizarUsuario(actualizarUsuarioRequestDto)
