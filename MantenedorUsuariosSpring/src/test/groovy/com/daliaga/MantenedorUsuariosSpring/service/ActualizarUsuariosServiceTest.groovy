@@ -26,7 +26,7 @@ class ActualizarUsuariosServiceTest extends Specification{
         )
     }
 
-    def "Invoca a la clase service para actualizar un usuario resultado OK"(){
+    def "Invoca a la clase service para actualizar Mantenedor Exception"(){
         given: "se recibe una solicitud de actualizar"
         List<TelefonoDto> telefonos= new ArrayList<>()
         TelefonoDto telefono = TelefonoDto.builder()
